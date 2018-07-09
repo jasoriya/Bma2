@@ -18,7 +18,7 @@ from sumy.parsers.plaintext import PlaintextParser
 def summarizer(algo):
     text = excel_preprocessor()
     if algo is 'gensimTextRank':
-        text_summarized = summarize(text, ratio = 0.01)
+        text_summarized = summarize(text, word_count=5000)
         return text_summarized
     elif algo is 'sumyTextRank':
         parser = PlaintextParser(text, Tokenizer('english'))
@@ -37,4 +37,7 @@ def summarizer(algo):
         
 if __name__ == "__main__":
     text = summarizer('gensimTextRank')
+    text = text.replace("\n", "\n\n")
+    with open("../output.txt", "w") as f:
+        f.writelines(text)
    
