@@ -10,11 +10,6 @@ import pandas as pd
 import numpy as np
 import re
 
-runDir = r"C:\Users\Shreyans\Documents\GitHub\Summarisation_SEC\excel_to_summariser\src"
-
-if os.getcwd() != runDir:
-    os.chdir(runDir)
-
 def read_excel_file():
     """
     Refer: https://stackoverflow.com/a/21138287/5830794
